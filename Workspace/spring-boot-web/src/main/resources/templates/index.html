@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"><!--conectamos la vista con el modelo--> 
 <head>
-<meta charset="ISO-UTF-8"/>
-<title>Hola Spring</title>
+<meta charset="UTF-8"/>
+<title th:text="${titulo}"></title><!--con la etiqueta th:text le pasamos el valor en el atrivuto titulo determinado en el modelo-->
 </head>
 <body>
-<h1>Hola Spring</h1>
+<h1 th:text="${titulo}"></h1>
 </body>
 </html>
