@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <title th:text="${titulo}"></title><!--con la etiqueta th:text le pasamos el valor en el atrivuto titulo determinado en el modelo-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
 </head>
 <body>
-<h1 th:text="${titulo}"></h1>
+<h1 class="color-rojo" th:text="${titulo}"></h1>
+<h2 class="color-azul">Estilos CSS</h2>
 </body>
 </html>
