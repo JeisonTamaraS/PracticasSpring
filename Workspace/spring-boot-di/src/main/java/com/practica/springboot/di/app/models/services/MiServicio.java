@@ -1,12 +1,14 @@
 package com.practica.springboot.di.app.models.services;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
+@Primary
+@Component("miServicio")
 public class MiServicio implements IServicio{
 
 	@Override
 	public String operacion() {
-		return "Alguna operacion importante...";
+		return "Ejecutando alguna operacion importante...";
 	}
 }
