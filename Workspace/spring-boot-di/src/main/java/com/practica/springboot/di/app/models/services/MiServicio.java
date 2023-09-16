@@ -1,10 +1,10 @@
 package com.practica.springboot.di.app.models.services;
 
-import org.springframework.context.annotation.Primary;
+/*import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Primary
-@Component("miServicio")
+@Component("miServicio")*/
 public class MiServicio implements IServicio{
 
 	@Override
