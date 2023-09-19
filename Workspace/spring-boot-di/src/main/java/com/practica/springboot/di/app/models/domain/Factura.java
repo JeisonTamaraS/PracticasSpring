@@ -2,9 +2,12 @@ package com.practica.springboot.di.app.models.domain;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 @Component
 public class Factura {
@@ -16,7 +19,18 @@ public class Factura {
 	private Cliente cliente;
 	
 	@Autowired
-	private List<ItemFactura> item;
+	private List<ItemFactura> items;
+	
+	@PostConstruct
+	public void inicializar() {
+		cliente.setNombre(cliente.getNombre().concat(" ").concat("josé"));
+		descripcion = descripcion.concat("del cliente: ").concat(cliente.getNombre());
+	}
+	
+	@PreDestroy
+	public void destruir(){
+		System.out.println("Factura destruida: ".concat(descripcion));
+	}
 
 	public String getDescripcion() {
 		return descripcion;
@@ -34,12 +48,12 @@ public class Factura {
 		this.cliente = cliente;
 	}
 
-	public List<ItemFactura> getItem() {
-		return item;
+	public List<ItemFactura> getItems() {
+		return items;
 	}
 
-	public void setItem(List<ItemFactura> item) {
-		this.item = item;
+	public void setItem(List<ItemFactura> items) {
+		this.items = items;
 	}
 
 }
