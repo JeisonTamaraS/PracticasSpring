@@ -1,5 +1,8 @@
 package com.practica.springboot.form.app.models.domain;
 
+import com.practica.springboot.form.app.validation.IdentificadorRegex;
+import com.practica.springboot.form.app.validation.Requerido;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,10 +12,12 @@ import jakarta.validation.constraints.Size;
 public class Usuario {
 	//con la etiqueta @pattern validaremos el patron en el identificador 
 	//@Pattern(regexp = "[0-9]{2}[.][//d]{3}[.][//d]{3}[-][A-Z]{1}")
+	@IdentificadorRegex//validacion con anotacion creada por nosotros
 	private String identificador;
 	//@NotEmpty(message = "esta casilla no puede estar vacia")
 	private String nombre;
-	@NotEmpty
+	//@NotEmpty
+	@Requerido//validamos con la anotacion creada
 	private String apellido;
 	@NotBlank
 	@Size(min = 3, max = 8)
