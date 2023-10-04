@@ -1,11 +1,16 @@
 package com.practica.springboot.form.app.models.domain;
 
+import java.util.Date;
+
 import com.practica.springboot.form.app.validation.IdentificadorRegex;
 import com.practica.springboot.form.app.validation.Requerido;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 //import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -27,7 +32,19 @@ public class Usuario {
 	@NotEmpty
 	@Email
 	private String email;
+	@NotNull
+	@Min(5)
+	@Max(5000)
+	private Integer cuenta;
+	@NotNull
+	private Date fechaNacimiento;
 	
+	public Integer getCuenta() {
+		return cuenta;
+	}
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
+	}
 	public String getIdentificador() {
 		return identificador;
 	}
@@ -63,6 +80,12 @@ public class Usuario {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	
 	

@@ -7,8 +7,10 @@ public class RequeridoValidador implements ConstraintValidator<Requerido, String
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		// TODO Auto-generated method stub
-		return false;
+		if(value == null || value.isEmpty() || value.isBlank()) {
+			return false;
+		}
+		return true;
 	}
 
 }
